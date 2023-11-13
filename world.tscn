@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg8x2eq31t4km"]
+
+[ext_resource type="PackedScene" uid="uid://cs4tdmhnv3jtr" path="res://Player.tscn" id="1_ewenh"]
+[ext_resource type="Texture2D" uid="uid://e6lkh4n5d2u7" path="res://TempAssets/sprites/objects/chest_02.png" id="2_1b1xr"]
+
+[node name="World" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_ewenh")]
+
+[node name="Chest02" type="Sprite2D" parent="."]
+position = Vector2(173, 94)
+texture = ExtResource("2_1b1xr")
