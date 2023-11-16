@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://boe3y6vntrtk7"]
+
+[ext_resource type="Texture2D" uid="uid://c2tkcgnt8xfb0" path="res://TempAssets/Tool&Weapons asset-pack/Mele-Weapons.png" id="1_mqkhl"]
+[ext_resource type="Script" path="res://Sword.gd" id="1_xovna"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5nnnh"]
+size = Vector2(2.85052, 5.75761)
+
+[node name="Weapons" type="Node2D"]
+
+[node name="Sword" type="Area2D" parent="."]
+script = ExtResource("1_xovna")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword"]
+position = Vector2(-0.000208974, -2.87219)
+shape = SubResource("RectangleShape2D_5nnnh")
+disabled = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Sword"]
+position = Vector2(0.208717, 3.09379)
+rotation = -2.33351
+scale = Vector2(0.516667, 0.5)
+texture = ExtResource("1_mqkhl")
+centered = false
+flip_h = true
+flip_v = true
+hframes = 6
+vframes = 4
+frame = 7
+metadata/_edit_lock_ = true

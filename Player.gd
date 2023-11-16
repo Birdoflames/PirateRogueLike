@@ -1,13 +1,14 @@
 extends CharacterBody2D
 
 
-const ACCELERATION = 80
+const ACCELERATION = 200
 const MAX_SPEED = 200
-const FRICTION = 500
+const FRICTION = 1000
 
 @onready var anim_tree = $AnimationTree
 @onready var anim_player = $AnimationPlayer
-@onready var anim_state = $AnimationTree.get("parameters/playback")
+@onready var sword = load("res://Sword.gd").new()
+
 
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
@@ -25,5 +26,7 @@ func _physics_process(delta):
 		anim_tree.set("parameters/conditions/is_moving", false)
 		anim_tree.set("parameters/conditions/idle", true)
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+	if Input.is_action_just_pressed("ui_accept"):
+		sword.swing(0)
 	print(velocity)
 	move_and_slide()

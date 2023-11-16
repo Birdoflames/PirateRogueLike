@@ -1,7 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://cs4tdmhnv3jtr"]
+[gd_scene load_steps=31 format=3 uid="uid://cs4tdmhnv3jtr"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_3dgji"]
 [ext_resource type="Texture2D" uid="uid://dmo37c7ite7pu" path="res://TempAssets/sprites/characters/player.png" id="1_h56jv"]
+[ext_resource type="Script" path="res://Sword.gd" id="3_iuad0"]
+[ext_resource type="Texture2D" uid="uid://c2tkcgnt8xfb0" path="res://TempAssets/Tool&Weapons asset-pack/Mele-Weapons.png" id="4_rojbl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nijho"]
 radius = 6.0
@@ -296,6 +298,9 @@ states/Start/position = Vector2(279, 63)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_7ltq8"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_n5u4s"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_n61j1")]
 graph_offset = Vector2(-37.2758, -48.4034)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5nnnh"]
+size = Vector2(2.85052, 5.75761)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_3dgji")
 
@@ -325,3 +330,29 @@ parameters/Run/blend_position = Vector2(0, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
+
+[node name="Weapons" type="Node2D" parent="."]
+position = Vector2(1.74653, -2.65074)
+
+[node name="Sword" type="Area2D" parent="Weapons"]
+script = ExtResource("3_iuad0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapons/Sword"]
+position = Vector2(-0.000208974, -2.87219)
+shape = SubResource("RectangleShape2D_5nnnh")
+disabled = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Weapons/Sword"]
+visible = false
+position = Vector2(0.208717, 3.09379)
+rotation = -2.33351
+scale = Vector2(0.516667, 0.5)
+texture = ExtResource("4_rojbl")
+centered = false
+flip_h = true
+flip_v = true
+hframes = 6
+vframes = 4
+frame = 7
+metadata/_edit_lock_ = true
